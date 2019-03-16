@@ -16,7 +16,7 @@ require('../vista/vistaAgenda.php');
 		<table border=0>			
 			<tr>
 				<td>
-					N` Registro:
+					Nro. Registro:
 				</td>
 				<td>
 					<input type="text" name="numRegistro" required />					
