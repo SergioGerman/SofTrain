@@ -33,7 +33,7 @@ require('../vista/vistaAgenda.php');
 			</tr>
 			<tr>
 				<td>
-					<label>Fecha de asignacion:
+					<label>Fecha de asignación:
 				</td>
 				<td>
 					<input type="date" name="fechaAsignacion" />
