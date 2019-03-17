@@ -1,7 +1,7 @@
 ﻿<?php require('modelo/conexion.php'); ?>
 <html>
 	<head>
-		<title>Login dos</title>
+		<title>Login</title>
 	</head>
 	
 	<body>
