@@ -43,7 +43,7 @@ foreach ($conexion->query("SELECT * from train where id='$id'") as $row){
 			</tr>
 		</table>
 <?php	}?>	
-		<table border=1>
+		<table  border=1>
 			
 			<tr>
 				<td>
@@ -79,77 +79,232 @@ foreach ($conexion->query("SELECT * from train where id='$id'") as $row){
 			</tr>
 <?php
 foreach ($conexion->query("SELECT * from notaContables where id_carga='$id'") as $row){
+	$id1= $row['id'];
+	$a1='0';
+	$a2='0';
+	$a3='0';
+	$a4='0';
+	$a5='0';
+	$a6='0';
+	$a7='0';
+	$a8='0';
+	$a9='0';
+	$a10='0';
+	$a11='0';
+	$a12='0';
+	$a13='0';
+	$a14='0';
+	$a15='0';
+	$a16='0';
+	$a17='0';
+	$a18='0';
+	$a19='0';
+	$a20='0';
+   $subTotalD=  $row['debeAC']+
+				$row['debeFT']+
+				$row['debeL']+
+				$row['debeTHC']+
+				$row['debeTHD']+
+				$row['debeC']+
+				$row['debeEDF']+
+				$row['debeGI']+
+				$row['debeGO']+
+				$row['debeTD']+
+				$row['debePCont']+
+				$row['debeDC']+
+				$row['debeG']+
+				$row['debeA']+
+				$row['debePC']+
+				$row['debeDP']+
+				$row['debePAA']+
+				$row['debeAlm']+
+				$row['debeTra']+
+				$row['debeEst']+
+				$row['debeCC']+
+				$row['debeCG']+
+				$row['debeEDS'];
+
+ 
+   $subTotalH=  $row['haberAC']+
+				$row['haberFT']+
+				$row['haberL']+
+				$row['haberTHC']+
+				$row['haberTHD']+
+				$row['haberC']+
+				$row['haberEDF']+ 
+				$row['haberEDS']+ 
+				$row['haberGI']+
+				$row['haberGO']+ 
+				$row['haberTD']+
+				$row['haberPCont']+
+				$row['haberDC']+
+				$row['haberG']+
+				$row['haberA']+
+				$row['haberPC']+
+				$row['haberDP']+ 
+				$row['haberPAA']+ 
+				$row['haberAlm']+ 
+				$row['haberTra']+
+				$row['haberEst']+
+				$row['haberCC']+
+				$row['haberCG'];
+				;
+
+   $subTotalDD=$row['debeDolAC']+
+				$row['debeDolFT']+
+				$row['debeDolL']+
+				$row['debeDolTHC']+
+				$row['debeDolTHD']+
+				$row['debeDolC']+
+				$row['debeDolEDF']+
+				$row['debeDolEDS']+
+				$row['debeDolGI']+
+				$row['debeDolGO']+ 
+				$row['debeDolTD']+ 
+				$row['debeDolPCont']+ 
+				$row['debeDolDC']+
+				$row['debeDolG']+
+				$row['debeDolA']+
+				$row['debeDolPC']+
+				$row['debeDolDP']+
+				$row['debeDolPAA']+
+				$row['debeDolAlm']+
+				$row['debeDolTra']+
+				$row['debeDolEst']+
+				$row['debeDolCG']+
+				$row['debeDolCC'];
+
+   $subTotalHD=     $row['haberDolAC']+
+					$row['haberDolFT']+
+					$row['haberDolL']+
+					$row['haberDolTHC']+
+					$row['haberDolTHD']+
+					$row['haberDolC']+
+					$row['haberDolEDF']+
+					$row['haberDolEDS']+
+					$row['haberDolGI']+
+					$row['haberDolGO']+
+					$row['haberDolTD']+
+					$row['haberDolPCont']+
+					$row['haberDolDC']+
+					$row['haberDolG']+
+					$row['haberDolA']+
+					$row['haberDolPC']+
+					$row['haberDolDP']+
+					$row['haberDolPAA']+
+					$row['haberDolAlm']+
+					$row['haberDolTra']+
+					$row['haberDolEst']+
+					$row['haberDolCG']+
+				    $row['haberDolCC'];
+					     
+    
+
+
+	foreach ($conexion->query("SELECT * from notacontables2 where id_nc=$id1") as $ro){
+    
+    $a1=$a1+$ro['debeAT'];      
+    $a2=$a2+$ro['haberAT'];  
+    $a3=$a3+$ro['debeDolAT'];    	
+    $a4=$a4+$ro['haberDolAT'];  
+
+    $a5=$a5+$ro['debeCP'];  
+    $a6=$a6+$ro['haberCP'];  
+    $a7=$a7+$ro['debeDolCP'];  
+    $a8=$a8+$ro['haberDolCP'];
+
+    $a9=$a9+$ro['debeFTrans'];  
+    $a10=$a10+$ro['haberFTrans'];  
+    $a11=$a11+$ro['debeDolFTrans'];  
+    $a12=$a12+$ro['haberDolFTrans']; 
+
+    $a13=$ro['deAT'];  
+    $a14=$ro['deCP'];  
+    $a15=$ro['deFTrans']; 
+
+    $a20=$ro['deOtro'];  
+    $a16=$a16+$ro['debeOtro'];  
+    $a17=$a17+$ro['haberOtro'];  
+    $a18=$a18+$ro['debeDolOtro'];  
+    $a19=$a19+$ro['haberDolOtro']; 
+      /*
+    Textos completos 	id 	debeAT Ascendente 1 	debeDolAT 	haberAT 	deAT 	haberDolAT 	deFTrans 	debeFTrans 	haberFTrans 	debeDolFTrans 	haberDolFTrans 	deCP 	debeCP 	haberCP 	debeDolCP 	haberDolCP 	deOtro 	haberDolOtro 	debeOtro 	id_nc 	haberOtro 	debeDolOtro 
+*/
+	
+			}
 ?>
-			<tr>
+			<tr id="tabla1">
+
 				<td>
-					<label>Adelanto Transportista:
+					<label>Adelanto Transportista:</label>
 				</td>
 				<td>
-					<input type="text" name="ObsAT" />
-					</label>
+					<input type="text"  value="<?php echo $a13 ?>" name="ObsAT" />
+					
 				</td>
 				<td>
-					<a href="vistaNotaContable2.php?id=<?php echo $id; ?>">anadir</a>
+					<input type="number" step="any"  value="<?php echo $a1 ?>" name="haberAT" min=0 max=10000000  />
 				</td>
 				<td>
-					<input type="number" step="any" name="haberAT" min=0 max=10000000  />					
+					<input type="number" step="any" value="<?php echo $a2 ?>" name="haberAT" min=0 max=10000000  />					
 				</td>
 				<td>
-					<input type="number" step="any" name="debeDolAT" min=0 max=10000000  />					
+					<input type="number" step="any" value="<?php echo $a3 ?>" name="debeDolAT" min=0 max=10000000  />					
 				</td>
 				<td>
-					<input type="number" step="any" name="haberDolAT" min=0 max=10000000  />					
+					<input type="number" step="any" value="<?php echo $a4 ?>" name="haberDolAT" min=0 max=10000000  />					
 				</td>
 			</tr>
 			<tr>
 				<td>
-					<label>Cuenta por Pagar:
+					<label>Cuenta por Pagar:</label>
 				</td>
 				<td>
-					<input type="text" name="ObsCP" />
-					</label>
+					<input type="text" value="<?php echo $a15 ?>" name="ObsCP" />
+					
 				</td>				
 				<td>
-					<input type="number" step="any" name="debeCP" min=0 max=10000000  />					
+					<input type="number" step="any" value="<?php echo $a5 ?>" name="debeCP" min=0 max=10000000  />					
 				</td>
 				<td>
-					<input type="number" step="any" name="haberCP" min=0 max=10000000  />					
+					<input type="number" step="any" value="<?php echo $a6 ?>" name="haberCP" min=0 max=10000000  />					
 				</td>
 				<td>
-					<input type="number" step="any" name="debeDolCP" min=0 max=10000000  />					
+					<input type="number" step="any" value="<?php echo $a7 ?>" name="debeDolCP" min=0 max=10000000  />					
 				</td>
 				<td>
-					<input type="number" step="any" name="haberDolCP" min=0 max=10000000  />					
+					<input type="number" step="any" value="<?php echo $a8 ?>" name="haberDolCP" min=0 max=10000000  />					
 				</td>
 			</tr>
 			<tr>
 				<td>
-					<label>Flete del Transportista:
+					<label>Flete del Transportista:</label>
 				</td>
 				<td>
-					<input type="text" name="ObsFTrans" />
-					</label>
+					<input type="text" value="<?php echo $a14 ?>" name="ObsFTrans" />
+					
 				</td>				
 				<td>
-					<input type="number" value= step="any" name="debeFTrans" min=0 max=10000000  />					
+					<input type="number"  name="debeFTrans"  value="<?php echo $a9 ?>" min=0 max=10000000  />					
 				</td>
 				<td>
-					<input type="number" step="any" name="haberFTrans" min=0 max=10000000  />					
+					<input type="number" step="any" name="haberFTrans" value="<?php echo $a10 ?>"min=0 max=10000000  />					
 				</td>
 				<td>
-					<input type="number" step="any" name="debeDolFTrans" min=0 max=10000000  />					
+					<input type="number" step="any" name="debeDolFTrans" value="<?php echo $a11 ?>" min=0 max=10000000  />					
 				</td>
 				<td>
-					<input type="number" step="any" name="haberDolFTrans" min=0 max=10000000  />					
+					<input type="number" step="any" name="haberDolFTrans" value="<?php echo $a12 ?>" min=0 max=10000000  />					
 				</td>
 			</tr>
+			
 			<tr>
 				<td>
-					<label>Flete del Transporte:
+					<label>Flete del Transporte:</label>
 				</td>
 				<td>
 					<input type="text" name="ObsFT" value="<?php echo $row['ObsFT']?>"/>
-					</label>
+					
 				</td>				
 				<td>
 					<input type="number" step="any" value="<?php echo $row['debeFT']?>" name="debeFT" min=0 max=10000000  />					
@@ -186,11 +341,11 @@ foreach ($conexion->query("SELECT * from notaContables where id_carga='$id'") as
 			</tr>
 			<tr>
 				<td>
-					<label>Cuenta por Cobrar:
+					<label>Cuenta por Cobrar:</label>
 				</td>
 				<td>
 					<input type="text" name="ObsCC" value="<?php echo $row['ObsCC']?>"/>
-					</label>
+					
 				</td>				
 				<td>
 					<input type="number" step="any" name="debeCC" value="<?php echo $row['debeCC']?>"value="<?php echo $row['ObsAC']?>" min=0 max=10000000  />					
@@ -207,11 +362,11 @@ foreach ($conexion->query("SELECT * from notaContables where id_carga='$id'") as
 			</tr>				
 			<tr>
 				<td>
-					<label>Liberacion:
+					<label>Liberacion:	</label>
 				</td>
 				<td>
 					<input type="text" name="ObsL" value="<?php echo $row['ObsL']?>" />
-					</label>
+				
 				</td>
 				<td>
 					<input type="number" step="any" name="debeL" value="<?php echo $row['debeL']?>" min=0 max=10000000  />					
@@ -228,11 +383,11 @@ foreach ($conexion->query("SELECT * from notaContables where id_carga='$id'") as
 			</tr>
 			<tr>
 				<td>
-					<label>THC:
+					<label>THC:</label>
 				</td>
 				<td>
 					<input type="text" name="ObsTHC" value="<?php echo $row['ObsTHC']?>"/>
-					</label>
+					
 				</td>
 				<td>
 					<input type="number" step="any" name="debeTHC" value="<?php echo $row['debeTHC']?>" min=0 max=10000000  />					
@@ -249,11 +404,11 @@ foreach ($conexion->query("SELECT * from notaContables where id_carga='$id'") as
 			</tr>
 			<tr>
 				<td>
-					<label>THD:
+					<label>THD:	</label>
 				</td>
 				<td>
 					<input type="text" name="ObsTHD" value="<?php echo $row['ObsTHD']?>" />
-					</label>
+				
 				</td>
 				<td>
 					<input type="number" step="any" name="debeTHD" value="<?php echo $row['debeTHD']?>" min=0 max=10000000  />					
@@ -270,11 +425,11 @@ foreach ($conexion->query("SELECT * from notaContables where id_carga='$id'") as
 			</tr>
 			<tr>
 				<td>
-					<label>COMODATO:
+					<label>COMODATO:</label>
 				</td>
 				<td>
 					<input type="text" name="ObsC" value="<?php echo $row['ObsC']?>" />
-					</label>
+					
 				</td>
 				<td>
 					<input type="number" step="any" name="debeC" min=0 max=10000000 value="<?php echo $row['debeC']?>"  />					
@@ -291,11 +446,11 @@ foreach ($conexion->query("SELECT * from notaContables where id_carga='$id'") as
 			</tr>
 			<tr>
 				<td>
-					<label>EDF:
+					<label>EDF:</label>
 				</td>
 				<td>
 					<input type="text" name="ObsEDF" value="<?php echo $row['ObsEDF']?>" />
-					</label>
+					
 				</td>
 				<td>
 					<input type="number" step="any" name="debeEDF" value="<?php echo $row['debeEDF']?>" min=0 max=10000000  />					
@@ -312,11 +467,11 @@ foreach ($conexion->query("SELECT * from notaContables where id_carga='$id'") as
 			</tr>
 			<tr>
 				<td>
-					<label>EDS:
+					<label>EDS:</label>
 				</td>
 				<td>
 					<input type="text" name="ObsEDS" value="<?php echo $row['ObsEDS']?>"/>
-					</label>
+					
 				</td>
 				<td>
 					<input type="number" step="any" name="debeEDS" value="<?php echo $row['debeEDS']?>" min=0 max=10000000  />					
@@ -333,11 +488,11 @@ foreach ($conexion->query("SELECT * from notaContables where id_carga='$id'") as
 			</tr>
 			<tr>
 				<td>
-					<label>Gate in:
+					<label>Gate in:</label>
 				</td>
 				<td>
 					<input type="text" name="ObsGI" value="<?php echo $row['ObsGI']?>"/>
-					</label>
+					
 				</td>					
 				<td>
 					<input type="number" step="any" name="debeGI" value="<?php echo $row['debeGI']?>"min=0 max=10000000  />					
@@ -354,11 +509,11 @@ foreach ($conexion->query("SELECT * from notaContables where id_carga='$id'") as
 			</tr>
 			<tr>
 				<td>
-					<label>Gate Out:
+					<label>Gate Out:</label>
 				</td>
 				<td>
 					<input type="text" name="ObsGO" value="<?php echo $row['ObsGO']?>" />
-					</label>
+					
 				</td>
 				<td>
 					<input type="number" step="any" name="debeGO" value="<?php echo $row['debeGO']?>" min=0 max=10000000  />		
@@ -375,11 +530,11 @@ foreach ($conexion->query("SELECT * from notaContables where id_carga='$id'") as
 			</tr>
 			<tr>
 				<td>
-					<label>Transporte puerto Deposito:
+					<label>Transporte puerto Deposito:</label>
 				</td>
 				<td>
 					<input type="text" name="ObsTD" value="<?php echo $row['ObsTD']?>"/>
-					</label>
+					
 				</td>
 				<td>
 					<input type="number" step="any" name="debeTD" value="<?php echo $row['debeTD']?>" min=0 max=10000000  />					
@@ -396,11 +551,11 @@ foreach ($conexion->query("SELECT * from notaContables where id_carga='$id'") as
 			</tr>
 			<tr>
 				<td>
-					<label>Poliza de Contenedores:
+					<label>Poliza de Contenedores:</label>
 				</td>
 				<td>
 					<input type="text" name="ObsPCont" value="<?php echo $row['ObsPCont']?>"/>
-					</label>
+					
 				</td>
 				<td>
 					<input type="number" step="any" name="debePCont" value="<?php echo $row['debePCont']?>" min=0 max=10000000  />					
@@ -417,11 +572,11 @@ foreach ($conexion->query("SELECT * from notaContables where id_carga='$id'") as
 			</tr>
 			<tr>
 				<td>
-					<label>Demoras de Contenedor:
+					<label>Demoras de Contenedor:</label>
 				</td>
 				<td>
 					<input type="text" name="ObsDC" value="<?php echo $row['ObsDC']?>"/>
-					</label>
+					
 				</td>
 				<td>
 					<input type="number" step="any" name="debeDC" value="<?php echo $row['debeDC']?>" min=0 max=10000000  />					
@@ -438,11 +593,11 @@ foreach ($conexion->query("SELECT * from notaContables where id_carga='$id'") as
 			</tr>
 			<tr>
 				<td>
-					<label>Garantias:
+					<label>Garantias:</label>
 				</td>
 				<td>
 					<input type="text" name="ObsG" value="<?php echo $row['ObsG']?>" />
-					</label>
+					
 				</td>
 				<td>
 					<input type="number" step="any" name="debeG" value="<?php echo $row['debeG']?>"  min=0 max=10000000  />					
@@ -459,11 +614,11 @@ foreach ($conexion->query("SELECT * from notaContables where id_carga='$id'") as
 			</tr>
 			<tr>
 				<td>
-					<label>Aclaraciones:
+					<label>Aclaraciones:</label>
 				</td>
 				<td>
 					<input type="text" name="ObsA" value="<?php echo $row['ObsA']?>"  />
-					</label>
+					
 				</td>
 				<td>
 					<input type="number" step="any" name="debeA" value="<?php echo $row['debeA']?>" min=0 max=10000000  />					
@@ -480,11 +635,11 @@ foreach ($conexion->query("SELECT * from notaContables where id_carga='$id'") as
 			</tr>
 			<tr>
 				<td>
-					<label>Pagos Collet:
+					<label>Pagos Collet:</label>
 				</td>
 				<td>
 					<input type="text" name="ObsPC" value="<?php echo $row['ObsPC']?>" />
-					</label>
+					
 				</td>
 				<td>
 					<input type="number" step="any" name="debePC" value="<?php echo $row['debePC']?>" min=0 max=10000000  />					
@@ -501,11 +656,11 @@ foreach ($conexion->query("SELECT * from notaContables where id_carga='$id'") as
 			</tr>
 			<tr>
 				<td>
-					<label>Despacho Preferente:
+					<label>Despacho Preferente:	</label>
 				</td>
 				<td>
 					<input type="text" name="ObsDP" value="<?php echo $row['ObsDP']?>"/>
-					</label>
+				
 				</td>
 				<td>
 					<input type="number" step="any" name="debeDP" value="<?php echo $row['debeDP']?>" min=0 max=10000000  />					
@@ -522,11 +677,11 @@ foreach ($conexion->query("SELECT * from notaContables where id_carga='$id'") as
 			</tr>
 			<tr>
 				<td>
-					<label>Pago Agencia de Aduana:
+					<label>Pago Agencia de Aduana:</label>
 				</td>
 				<td>
 					<input type="text" name="ObsPAA" value="<?php echo $row['ObsPAA']?>"/>
-					</label>
+					
 				</td>
 				<td>
 					<input type="number" step="any" name="debePAA"  value="<?php echo $row['debePAA']?>" min=0 max=10000000  />					
@@ -543,11 +698,11 @@ foreach ($conexion->query("SELECT * from notaContables where id_carga='$id'") as
 			</tr>
 			<tr>
 				<td>
-					<label>Almacenaje:
+					<label>Almacenaje:</label>
 				</td>
 				<td>
 					<input type="text" name="ObsAlm" value="<?php echo $row['ObsAlm']?>"/>
-					</label>
+					
 				</td>
 				<td>
 					<input type="number" step="any" name="debeAlm" value="<?php echo $row['debeAlm']?>" min=0 max=10000000  />					
@@ -564,11 +719,11 @@ foreach ($conexion->query("SELECT * from notaContables where id_carga='$id'") as
 			</tr>
 			<tr>
 				<td>
-					<label>Transbordo:
+					<label>Transbordo:</label>
 				</td>
 				<td>
 					<input type="text" name="ObsTra" value="<?php echo $row['ObsTra']?>"/>
-					</label>
+					
 				</td>
 				<td>
 					<input type="number" step="any" name="debeTra"  value="<?php echo $row['debeTra']?>" min=0 max=10000000  />					
@@ -585,11 +740,11 @@ foreach ($conexion->query("SELECT * from notaContables where id_carga='$id'") as
 			</tr>
 				<tr>
 				<td>
-					<label>Estibadores:
+					<label>Estibadores:</label>
 				</td>
 				<td>
 					<input type="text" name="ObsEst" value="<?php echo $row['obsEst']?>" />
-					</label>
+					
 				</td>
 				<td>
 					<input type="number" step="any" name="debeEst" value="<?php echo $row['debeEst']?>"  min=0 max=10000000  />					
@@ -606,11 +761,11 @@ foreach ($conexion->query("SELECT * from notaContables where id_carga='$id'") as
 			</tr>
 			<tr>
 				<td>
-					<label>Comision Giro 2.5%:
+					<label>Comision Giro 2.5%:</label>
 				</td>
 				<td>
 					<input type="text" name="ObsCG" value="<?php echo $row['ObsCG']?>" />
-					</label>
+					
 				</td>
 				<td>
 					<input type="number" step="any" name="debeCG" value="<?php echo $row['debeCG']?>"  min=0 max=10000000  />					
@@ -627,39 +782,56 @@ foreach ($conexion->query("SELECT * from notaContables where id_carga='$id'") as
 			</tr>
 			<tr>
 				<td>
-					<label>Otros:
+					<label>Otros:</label>
 				</td>
 				<td>
-					<input type="text" name="ObsOtros" value="<?php echo $row['ObsOtro']?>" />
-					</label>
+					<input type="text" name="ObsOtros" value="<?php echo $a20?>" />
+					
 				</td>
 				<td>
-					<input type="number" step="any" name="debeOtros" value="<?php echo $row['debeOtro']?>"  min=0 max=10000000  />					
+					<input type="number" step="any" name="debeOtros" value="<?php echo $a16?>" min=0 max=10000000  />					
 				</td>
 				<td>
-					<input type="number" step="any" name="haberOtros" value="<?php echo $row['haberOtro']?>" min=0 max=10000000  />					
+					<input type="number" step="any" name="haberOtros" value="<?php echo $a17?>" min=0 max=10000000  />					
 				</td>
 				<td>
-					<input type="number" step="any" name="debeDolOtros" value="<?php echo $row['debeDolOtro']?>" min=0 max=10000000  />					
+					<input type="number" step="any" name="debeDolOtros" value="<?php echo $a18?>" min=0 max=10000000  />					
 				</td>
 				<td>
-					<input type="number" step="any" name="haberDolOtros" value="<?php echo $row['haberDolOtro']?>" min=0 max=10000000  />					
+					<input type="number" step="any" name="haberDolOtros" value="<?php echo $a19?>" min=0 max=10000000  />					
 				</td>
 			</tr>
 			
 			<tr>
 				<td></td>
+				<?php
+				if($a1!=''){
+				 $subTotalD=$subTotalD +$a1+$a5+$a9+$a16;
+                 $subTotalH=$subTotalH +$a2+$a6+$a10+$a17;
+                 $subTotalDD=$subTotalDD +$a3+$a7+$a11+$a18;
+                 $subTotalHD=$subTotalHD +$a5+$a8+$a12+$a19;
+                 $totalB=$subTotalD+$subTotalH;
+                 $totalD=$subTotalDD+$subTotalHD;
+             }elseif($a1==''){
+                
+                 $totalB=$subTotalD+$subTotalH;
+                 $totalD=$subTotalDD+$subTotalHD;
+             }
+				 ?>
+             }
+
 				<td>SUB TOTAL</td>
-				<td>0.00</td>
-				<td>0.00</td>
-				<td>00.00</td>
-				<td>00.00</td>
+				<td><?php  echo $subTotalD ?></td>
+				<td><?php  echo $subTotalH ?></td>
+				<td><?php  echo $subTotalDD ?></td>
+				<td><?php  echo $subTotalHD ?></td>
+
 			</tr>
 			<tr>
 				<td></td>
 				<td>TOTAL</td>
-				<td colspan=2 align="center">0.00</td>				
-				<td colspan=2 align="center">00.00</td>				
+				<td colspan=2 align="center"><?php  echo $totalB ?></td>				
+				<td colspan=2 align="center"><?php  echo $totalD ?></td>				
 			</tr>
 			<tr>
 				<td>
@@ -678,11 +850,47 @@ foreach ($conexion->query("SELECT * from notaContables where id_carga='$id'") as
 	</body>
 </html>
 <script>
-	function eliminarNotaContable(id_carga){
-		if(confirm("¡Se eliminará este registro permanentemente!")==true){
-			return true;
-		}else{
-			return false;
-		}
-	}
+	
+	
+
+	var tabla1 = document.getElementById('tabla1');
+	
+	 tabla1.addEventListener('mouseover',function(){
+	 	console.log('solbre enciama')
+	   		tabla1.innerHTML =`
+  	             	<td>
+				<label>Adelanto Transportista:</label>
+				</td>
+				<a href="vistaNotaContable2.php?id=<?php echo $id; ?>">anadir</a>
+			
+   		`;
+   		  
+	   })  
+	 tabla1.addEventListener('mouseout',function(){
+	 	console.log('se salio')
+	   	tabla1.innerHTML =`
+   		
+			<td>
+					<label>Adelanto Transportista:</label>
+				</td>
+				<td>
+					<input type="text"  value="<?php echo $a13 ?>" name="ObsAT" />
+					
+				</td>
+				<td>
+					<input type="number" step="any"  value="<?php echo $a1 ?>" name="haberAT" min=0 max=10000000  />
+				</td>
+				<td>
+					<input type="number" step="any" value="<?php echo $a2 ?>" name="haberAT" min=0 max=10000000  />					
+				</td>
+				<td>
+					<input type="number" step="any" value="<?php echo $a3 ?>" name="debeDolAT" min=0 max=10000000  />					
+				</td>
+				<td>
+					<input type="number" step="any" value="<?php echo $a4 ?>" name="haberDolAT" min=0 max=10000000  />					
+				</td>
+   		`
+   		;
+	   })  
+
 </script>
