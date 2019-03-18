@@ -37,11 +37,11 @@ if($naviera=='Mapag Lloyd'||$naviera=='MSC'||$naviera=='Maersk'||$naviera=='Casc
 $query="insert into train (numRegistro,fecha,fechaAsignacion,
 fechaArribo,fechaLimDev,calculoFecha,pesoKg,detalle,facSoftrain,
 facturaApoyo,naviera,numBillOflanding,fechaDev,placa,empresa,conductor,
-tamCont,contenedor,cliente,remitConsig,tramo,id_usuario, id_bol) values 
+tamCont,contenedor,cliente,remitConsig,tramo,id_usuario) values 
 ('$numRegistro','$fecha','$fechaAsignacion','$fechaArribo','$fechaLimDev2',
 null,'$peso','$detalle','$facSoftrain','$facApoyo','$naviera',
 '$bol','$fechaDev','$placa','$empresa','$conductor','$tamCont',
-'$contenedor','$cliente','$remitConsig','$tramo',null,null)";
+'$contenedor','$cliente','$remitConsig','$tramo',null)";
 }elseif($naviera=='CMA CGM'||$naviera=='Hambug Sud'){
 	//$today = date('y-m-d');
 	$fechaLimDev2 = strtotime('+20 day', strtotime($fechaArribo));
@@ -50,11 +50,11 @@ null,'$peso','$detalle','$facSoftrain','$facApoyo','$naviera',
 $query="insert into train (numRegistro,fecha,fechaAsignacion,
 fechaArribo,fechaLimDev,calculoFecha,pesoKg,detalle,facSoftrain,
 facturaApoyo,naviera,numBillOflanding,fechaDev,placa,empresa,conductor,
-tamCont,contenedor,cliente,remitConsig,tramo,id_usuario, id_bol) values 
+tamCont,contenedor,cliente,remitConsig,tramo,id_usuario) values 
 ('$numRegistro','$fecha','$fechaAsignacion','$fechaArribo','$fechaLimDev2',
 null,'$peso','$detalle','$facSoftrain','$facApoyo','$naviera',
 '$bol','$fechaDev','$placa','$empresa','$conductor','$tamCont',
-'$contenedor','$cliente','$remitConsig','$tramo',null,null)";
+'$contenedor','$cliente','$remitConsig','$tramo',null)";
 }elseif($naviera=='Seabord Marine'){
 	//$today = date('y-m-d');
 	$fechaLimDev2 = strtotime('+22 day', strtotime($fechaArribo));
@@ -63,11 +63,11 @@ null,'$peso','$detalle','$facSoftrain','$facApoyo','$naviera',
 $query="insert into train (numRegistro,fecha,fechaAsignacion,
 fechaArribo,fechaLimDev,calculoFecha,pesoKg,detalle,facSoftrain,
 facturaApoyo,naviera,numBillOflanding,fechaDev,placa,empresa,conductor,
-tamCont,contenedor,cliente,remitConsig,tramo,id_usuario, id_bol) values 
+tamCont,contenedor,cliente,remitConsig,tramo,id_usuario) values 
 ('$numRegistro','$fecha','$fechaAsignacion','$fechaArribo','$fechaLimDev2',
 null,'$peso','$detalle','$facSoftrain','$facApoyo','$naviera',
 '$bol','$fechaDev','$placa','$empresa','$conductor','$tamCont',
-'$contenedor','$cliente','$remitConsig','$tramo',null,null)";
+'$contenedor','$cliente','$remitConsig','$tramo',null)";
 }
 if($conexion->query($query)===true){
 	header("location: Formulario.php");
