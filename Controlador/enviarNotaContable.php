@@ -23,6 +23,7 @@ $haberOtro=$_POST['haberOtro'];
 $debeDolOtro=$_POST['debeDolOtro'];
 $haberDolOtro=$_POST['haberDolOtro'];
 */
+$var=6.91;
 $id_carga=$_POST['id'];
 
 $ObsAC=$_POST['ObsAC'];
@@ -32,15 +33,15 @@ $debeDolAC=$_POST['debeDolAC'];
 $haberDolAC=$_POST['haberDolAC'];
 
 if ($debeAC!='' and $debeDolAC=='') {
-	$debeDolAC=$debeAC/6.91;
+	$debeDolAC=$debeAC/$var;
 }elseif($debeAC=='' and $debeDolAC!=''){
-   $debeAC= $debeDolAC * 6.91;
+   $debeAC= $debeDolAC * $var;
 }
 
 if ($haberAC!='' and $haberDolAC=='') {
-	$haberDolAC=$haberAC/6.91;
+	$haberDolAC=$haberAC/$var;
 }elseif($haberAC=='' and $haberDolAC!=''){
-   $haberAC= $haberDolAC * 6.91;
+   $haberAC= $haberDolAC * $var;
 }
 
 
@@ -54,15 +55,15 @@ $debeDolL=$_POST['debeDolL'];
 $haberDolL=$_POST['haberDolL'];
 
 if ($debeL!='' and $debeDolL=='') {
-	$debeDolL=$debeL/6.91;
+	$debeDolL=$debeL/$var;
 }elseif($debeL=='' and $debeDolL!=''){
-   $debeL= $debeDolL * 6.91;
+   $debeL= $debeDolL * $var;
 }
 
 if ($haberL!='' and $haberDolL=='') {
-	$haberDolL=$haberL/6.91;
+	$haberDolL=$haberL/$var;
 }elseif($haberL=='' and $haberDolL!=''){
-   $haberL= $haberDolL * 6.91;
+   $haberL= $haberDolL * $var;
 }
 
 
@@ -73,15 +74,15 @@ $debeDolFT=$_POST['debeDolFT'];
 $haberDolFT=$_POST['haberDolFT'];
 
 if ($debeFT!='' and $debeDolFT=='') {
-	$debeDolFT=$debeFT/6.91;
+	$debeDolFT=$debeFT/$var;
 }elseif($debeFT=='' and $debeDolFT!=''){
-   $debeFT= $debeDolFT * 6.91;
+   $debeFT= $debeDolFT * $var;
 }
 
 if ($haberFT!='' and $haberDolFT=='') {
-	$haberDolFT=$haberFT/6.91;
+	$haberDolFT=$haberFT/$var;
 }elseif($haberFT=='' and $haberDolFT!=''){
-   $haberFT= $haberDolFT * 6.91;
+   $haberFT= $haberDolFT * $var;
 }
 
 $ObsTHC=$_POST['ObsTHC'];
@@ -91,15 +92,15 @@ $debeDolTHC=$_POST['debeDolTHC'];
 $haberDolTHC=$_POST['haberDolTHC'];
 
 if ($debeTHC!='' and $debeDolTHC=='') {
-	$debeDolTHC=$debeTHC/6.91;
+	$debeDolTHC=$debeTHC/$var;
 }elseif($debeTHC=='' and $debeDolTHC!=''){
-   $debeTHC= $debeDolTHC * 6.91;
+   $debeTHC= $debeDolTHC * $var;
 }
 
 if ($haberTHC!='' and $haberDolTHC=='') {
-	$haberDolTHC=$haberTHC/6.91;
+	$haberDolTHC=$haberTHC/$var;
 }elseif($haberTHC=='' and $haberDolTHC!=''){
-   $haberTHC= $haberDolTHC * 6.91;
+   $haberTHC= $haberDolTHC * $var;
 }
 
 $ObsC=$_POST['ObsC'];
@@ -109,15 +110,15 @@ $debeDolC=$_POST['debeDolC'];
 $haberDolC=$_POST['haberDolC'];
 
 if ($debeC!='' and $debeDolC=='') {
-	$debeDolC=$debeC/6.91;
+	$debeDolC=$debeC/$var;
 }elseif($debeC=='' and $debeDolC!=''){
-   $debeC= $debeDolC * 6.91;
+   $debeC= $debeDolC * $var;
 }
 
 if ($haberC!='' and $haberDolC=='') {
-	$haberDolC=$haberC/6.91;
+	$haberDolC=$haberC/$var;
 }elseif($haberC=='' and $haberDolC!=''){
-   $haberC= $haberDolC * 6.91;
+   $haberC= $haberDolC * $var;
 }
 
 $ObsEDF=$_POST['ObsEDF'];
@@ -127,15 +128,15 @@ $debeDolEDF=$_POST['debeDolEDF'];
 $haberDolEDF=$_POST['haberDolEDF'];
 
 if ($debeEDF!='' and $debeDolEDF=='') {
-	$debeDolEDF=$debeEDF/6.91;
+	$debeDolEDF=$debeEDF/$var;
 }elseif($debeEDF=='' and $debeDolEDF!=''){
-   $debeEDF= $debeDolEDF * 6.91;
+   $debeEDF= $debeDolEDF * $var;
 }
 
 if ($haberEDF!='' and $haberDolEDF=='') {
-	$haberDolEDF=$haberEDF/6.91;
+	$haberDolEDF=$haberEDF/$var;
 }elseif($haberEDF=='' and $haberDolEDF!=''){
-   $haberEDF= $haberDolEDF * 6.91;
+   $haberEDF= $haberDolEDF * $var;
 }
 
 $ObsGI=$_POST['ObsGI'];
@@ -145,15 +146,15 @@ $debeDolGI=$_POST['debeDolGI'];
 $haberDolGI=$_POST['haberDolGI'];
 
 if ($debeGI!='' and $debeDolGI=='') {
-	$debeDolGI=$debeGI/6.91;
+	$debeDolGI=$debeGI/$var;
 }elseif($debeGI=='' and $debeDolGI!=''){
-   $debeGI= $debeDolGI * 6.91;
+   $debeGI= $debeDolGI * $var;
 }
 
 if ($haberGI!='' and $haberDolGI=='') {
-	$haberDolGI=$haberGI/6.91;
+	$haberDolGI=$haberGI/$var;
 }elseif($haberGI=='' and $haberDolGI!=''){
-   $haberGI= $haberDolGI * 6.91;
+   $haberGI= $haberDolGI * $var;
 }
 
 $ObsGO=$_POST['ObsGO'];
@@ -163,15 +164,15 @@ $debeDolGO=$_POST['debeDolGO'];
 $haberDolGO=$_POST['haberDolGO'];
 
 if ($debeGO!='' and $debeDolGO=='') {
-	$debeDolGO=$debeGO/6.91;
+	$debeDolGO=$debeGO/$var;
 }elseif($debeGO=='' and $debeDolGO!=''){
-   $debeGO= $debeDolGO * 6.91;
+   $debeGO= $debeDolGO * $var;
 }
 
 if ($haberGO!='' and $haberDolGO=='') {
-	$haberDolGO=$haberGO/6.91;
+	$haberDolGO=$haberGO/$var;
 }elseif($haberGO=='' and $haberDolGO!=''){
-   $haberGO= $haberDolGO * 6.91;
+   $haberGO= $haberDolGO * $var;
 }
 
 $ObsTD=$_POST['ObsTD'];
@@ -180,15 +181,15 @@ $haberTD=$_POST['haberTD'];
 $debeDolTD=$_POST['debeDolTD'];
 $haberDolTD=$_POST['haberDolTD'];
 if ($debeTD!='' and $debeDolTD=='') {
-	$debeDolTD=$debeTD/6.91;
+	$debeDolTD=$debeTD/$var;
 }elseif($debeTD=='' and $debeDolTD!=''){
-   $debeTD= $debeDolTD * 6.91;
+   $debeTD= $debeDolTD * $var;
 }
 
 if ($haberTD!='' and $haberDolTD=='') {
-	$haberDolTD=$haberTD/6.91;
+	$haberDolTD=$haberTD/$var;
 }elseif($haberTD=='' and $haberDolTD!=''){
-   $haberTD= $haberDolTD * 6.91;
+   $haberTD= $haberDolTD * $var;
 }
 $ObsPCont=$_POST['ObsPCont'];
 $debePCont=$_POST['debePCont'];
@@ -196,15 +197,15 @@ $haberPCont=$_POST['haberPCont'];
 $debeDolPCont=$_POST['debeDolPCont'];
 $haberDolPCont=$_POST['haberDolPCont'];
 if ($debePCont!='' and $debeDolPCont=='') {
-	$debeDolPCont=$debePCont/6.91;
+	$debeDolPCont=$debePCont/$var;
 }elseif($debePCont=='' and $debeDolPCont!=''){
-   $debePCont= $debeDolPCont * 6.91;
+   $debePCont= $debeDolPCont * $var;
 }
 
 if ($haberPCont!='' and $haberDolPCont=='') {
-	$haberDolPCont=$haberPCont/6.91;
+	$haberDolPCont=$haberPCont/$var;
 }elseif($haberPCont=='' and $haberDolPCont!=''){
-   $haberPCont= $haberDolPCont * 6.91;
+   $haberPCont= $haberDolPCont * $var;
 }
 $ObsDC=$_POST['ObsDC'];
 $debeDC=$_POST['debeDC'];
@@ -212,15 +213,15 @@ $haberDC=$_POST['haberDC'];
 $debeDolDC=$_POST['debeDolDC'];
 $haberDolDC=$_POST['haberDolDC'];
 if ($debeDC!='' and $debeDolDC=='') {
-	$debeDolDC=$debeDC/6.91;
+	$debeDolDC=$debeDC/$var;
 }elseif($debeDC=='' and $debeDolDC!=''){
-   $debeDC= $debeDolDC * 6.91;
+   $debeDC= $debeDolDC * $var;
 }
 
 if ($haberDC!='' and $haberDolDC=='') {
-	$haberDolDC=$haberDC/6.91;
+	$haberDolDC=$haberDC/$var;
 }elseif($haberDC=='' and $haberDolDC!=''){
-   $haberDC= $haberDolDC * 6.91;
+   $haberDC= $haberDolDC *$var1;
 }
 $ObsG=$_POST['ObsG'];
 $debeG=$_POST['debeG'];
@@ -228,15 +229,15 @@ $haberG=$_POST['haberG'];
 $debeDolG=$_POST['debeDolG'];
 $haberDolG=$_POST['haberDolG'];
 if ($debeG!='' and $debeDolG=='') {
-	$debeDolG=$debeG/6.91;
+	$debeDolG=$debeG/$var;
 }elseif($debeG=='' and $debeDolG!=''){
-   $debeG= $debeDolG * 6.91;
+   $debeG= $debeDolG * $var;
 }
 
 if ($haberG!='' and $haberDolG=='') {
-	$haberDolG=$haberG/6.91;
+	$haberDolG=$haberG/$var;
 }elseif($haberG=='' and $haberDolG!=''){
-   $haberG= $haberDolG * 6.91;
+   $haberG= $haberDolG * $var;
 }
 $ObsA=$_POST['ObsA'];
 $debeA=$_POST['debeA'];
@@ -244,15 +245,15 @@ $haberA=$_POST['haberA'];
 $debeDolA=$_POST['debeDolA'];
 $haberDolA=$_POST['haberDolA'];
 if ($debeA!='' and $debeDolA=='') {
-	$debeDolA=$debeA/6.91;
+	$debeDolA=$debeA/$var;
 }elseif($debeA=='' and $debeDolA!=''){
-   $debeA= $debeDolA * 6.91;
+   $debeA= $debeDolA * $var;
 }
 
 if ($haberA!='' and $haberDolA=='') {
-	$haberDolA=$haberA/6.91;
+	$haberDolA=$haberA/$var;
 }elseif($haberA=='' and $haberDolA!=''){
-   $haberA= $haberDolA * 6.91;
+   $haberA= $haberDolA * $var;
 }
 $ObsPC=$_POST['ObsPC'];
 $debePC=$_POST['debePC'];
@@ -261,15 +262,15 @@ $debeDolPC=$_POST['debeDolPC'];
 $haberDolPC=$_POST['haberDolPC'];
 
 if ($debePC!='' and $debeDolPC=='') {
-	$debeDolPC=$debePC/6.91;
+	$debeDolPC=$debePC/$var;
 }elseif($debePC=='' and $debeDolPC!=''){
-   $debePC= $debeDolPC * 6.91;
+   $debePC= $debeDolPC * $var;
 }
 
 if ($haberPC!='' and $haberDolPC=='') {
-	$haberDolPC=$haberPC/6.91;
+	$haberDolPC=$haberPC/$var;
 }elseif($haberPC=='' and $haberDolPC!=''){
-   $haberPC= $haberDolPC * 6.91;
+   $haberPC= $haberDolPC * $var;
 }
 
 
@@ -280,15 +281,15 @@ $debeDolDP=$_POST['debeDolDP'];
 $haberDolDP=$_POST['haberDolDP'];
 
 if ($debeDP!='' and $debeDolDP=='') {
-	$debeDolDP=$debeDP/6.91;
+	$debeDolDP=$debeDP/$var;
 }elseif($debeDP=='' and $debeDolDP!=''){
-   $debeDP= $debeDolDP * 6.91;
+   $debeDP= $debeDolDP * $var;
 }
 
 if ($haberDP!='' and $haberDolDP=='') {
-	$haberDolDP=$haberDP/6.91;
+	$haberDolDP=$haberDP/$var;
 }elseif($haberDP=='' and $haberDolDP!=''){
-   $haberDP= $haberDolDP * 6.91;
+   $haberDP= $haberDolDP * $var;
 }
 
 $ObsPAA=$_POST['ObsPAA'];
@@ -298,15 +299,15 @@ $debeDolPAA=$_POST['debeDolPAA'];
 $haberDolPAA=$_POST['haberDolPAA'];
 
 if ($debePAA!='' and $debeDolPAA=='') {
-	$debeDolPAA=$debePAA/6.91;
+	$debeDolPAA=$debePAA/$var;
 }elseif($debePAA=='' and $debeDolPAA!=''){
-   $debePAA= $debeDolPAA * 6.91;
+   $debePAA= $debeDolPAA * $var;
 }
 
 if ($haberPAA!='' and $haberDolPAA=='') {
-	$haberDolPAA=$haberPAA/6.91;
+	$haberDolPAA=$haberPAA/$var;
 }elseif($haberPAA=='' and $haberDolPAA!=''){
-   $haberPAA= $haberDolPAA * 6.91;
+   $haberPAA= $haberDolPAA * $var;
 }
 
 $ObsAlm=$_POST['ObsAlm'];
@@ -316,15 +317,15 @@ $debeDolAlm=$_POST['debeDolAlm'];
 $haberDolAlm=$_POST['haberDolAlm'];
 
 if ($debeAlm!='' and $debeDolAlm=='') {
-	$debeDolAlm=$debeAlm/6.91;
+	$debeDolAlm=$debeAlm/$var;
 }elseif($debeAlm=='' and $debeDolAlm!=''){
-   $debeAlm= $debeDolAlm * 6.91;
+   $debeAlm= $debeDolAlm * $var;
 }
 
 if ($haberAlm!='' and $haberDolAlm=='') {
-	$haberDolAlm=$haberAlm/6.91;
+	$haberDolAlm=$haberAlm/$var;
 }elseif($haberAlm=='' and $haberDolAlm!=''){
-   $haberAlm= $haberDolAlm * 6.91;
+   $haberAlm= $haberDolAlm * $var;
 }
 
 $ObsTra=$_POST['ObsTra'];
@@ -334,15 +335,15 @@ $debeDolTra=$_POST['debeDolTra'];
 $haberDolTra=$_POST['haberDolTra'];
 
 if ($debeTra!='' and $debeDolTra=='') {
-	$debeDolTra=$debeTra/6.91;
+	$debeDolTra=$debeTra/$var;
 }elseif($debeTra=='' and $debeDolTra!=''){
-   $debeTra= $debeDolTra * 6.91;
+   $debeTra= $debeDolTra * $var;
 }
 
 if ($haberTra!='' and $haberDolTra=='') {
-	$haberDolTra=$haberTra/6.91;
+	$haberDolTra=$haberTra/$var;
 }elseif($haberTra=='' and $haberDolTra!=''){
-   $haberTra= $haberDolTra * 6.91;
+   $haberTra= $haberDolTra * $var;
 }
 
 
@@ -352,15 +353,15 @@ $haberEst=$_POST['haberEst'];
 $debeDolEst=$_POST['debeDolEst'];	
 $haberDolEst=$_POST['haberDolEst'];
 if ($debeEst!='' and $debeDolEst=='') {
-	$debeDolEst=$debeEst/6.91;
+	$debeDolEst=$debeEst/$var;
 }elseif($debeEst=='' and $debeDolEst!=''){
-   $debeEst= $debeDolEst * 6.91;
+   $debeEst= $debeDolEst *$var;
 }
 
 if ($haberEst!='' and $haberDolEst=='') {
-	$haberDolEst=$haberEst/6.91;
+	$haberDolEst=$haberEst/$var;
 }elseif($haberEst=='' and $haberDolEst!=''){
-   $haberEst= $haberDolEst * 6.91;
+   $haberEst= $haberDolEst * $var;
 }
 
 $ObsOtro=$_POST['ObsOtros'];
@@ -369,15 +370,15 @@ $haberOtro=$_POST['debeOtros'];
 $debeDolOtro=$_POST['debeDolOtros'];
 $haberDolOtro=$_POST['haberDolOtros'];
 if ($debeOtro!='' and $debeDolOtro=='') {
-	$debeDolOtro=$debeOtro/6.91;
+	$debeDolOtro=$debeOtro/$var;
 }elseif($debeOtro=='' and $debeDolOtro!=''){
-   $debeOtro= $debeDolOtro * 6.91;
+   $debeOtro= $debeDolOtro * $var;
 }
 
 if ($haberOtro!='' and $haberDolOtro=='') {
-	$haberDolOtro=$haberOtro/6.91;
+	$haberDolOtro=$haberOtro/$var;
 }elseif($haberOtro=='' and $haberDolOtro!=''){
-   $haberOtro= $haberDolOtro * 6.91;
+   $haberOtro= $haberDolOtro * $var;
 }
 
 $ObsCC=$_POST['ObsCC'];
@@ -386,15 +387,15 @@ $haberCC=$_POST['haberCC'];
 $debeDolCC=$_POST['debeDolCC'];
 $haberDolCC=$_POST['haberDolCC'];
 if ($debeCC!='' and $debeDolCC=='') {
-	$debeDolCC=$debeCC/6.91;
+	$debeDolCC=$debeCC/$var;
 }elseif($debeCC=='' and $debeDolCC!=''){
-   $debeCC= $debeDolCC * 6.91;
+   $debeCC= $debeDolCC * $var;
 }
 
 if ($haberCC!='' and $haberDolCC=='') {
-	$haberDolCC=$haberCC/6.91;
+	$haberDolCC=$haberCC/$var;
 }elseif($haberCC=='' and $haberDolCC!=''){
-   $haberCC= $haberDolCC * 6.91;
+   $haberCC= $haberDolCC * $var;
 }
 
 
@@ -404,15 +405,15 @@ $haberFTrans=$_POST['haberFTrans'];
 $debeDolFTrans=$_POST['debeDolFTrans'];
 $haberDolFTrans=$_POST['haberDolFTrans'];
 if ($debeFTrans!='' and $debeDolFTrans=='') {
-	$debeDolFTrans=$debeFTrans/6.91;
+	$debeDolFTrans=$debeFTrans/$var;
 }elseif($debeFTrans=='' and $debeDolFTrans!=''){
-   $debeFTrans= $debeDolFTrans * 6.91;
+   $debeFTrans= $debeDolFTrans * $var;
 }
 
 if ($haberFTrans!='' and $haberDolFTrans=='') {
-	$haberDolFTrans=$haberFTrans/6.91;
+	$haberDolFTrans=$haberFTrans/$var;
 }elseif($haberFTrans=='' and $haberDolFTrans!=''){
-   $haberFTrans= $haberDolFTrans * 6.91;
+   $haberFTrans= $haberDolFTrans * $var;
 }
 
 $ObsTHD=$_POST['ObsTHD'];
@@ -421,15 +422,15 @@ $haberTHD=$_POST['haberTHD'];
 $debeDolTHD=$_POST['debeDolTHD'];
 $haberDolTHD=$_POST['haberDolTHD'];
 if ($debeTHD!='' and $debeDolTHD=='') {
-	$debeDolTHD=$debeTHD/6.91;
+	$debeDolTHD=$debeTHD/$var;
 }elseif($debeTHD=='' and $debeDolTHD!=''){
-   $debeTHD= $debeDolTHD * 6.91;
+   $debeTHD= $debeDolTHD * $var;
 }
 
 if ($haberTHD!='' and $haberDolTHD=='') {
-	$haberDolTHD=$haberTHD/6.91;
+	$haberDolTHD=$haberTHD/$var;
 }elseif($haberTHD=='' and $haberDolTHD!=''){
-   $haberTHD= $haberDolTHD * 6.91;
+   $haberTHD= $haberDolTHD * $var;
 }
 
 $ObsEDS=$_POST['ObsEDS'];
@@ -438,15 +439,15 @@ $haberEDS=$_POST['haberEDS'];
 $debeDolEDS=$_POST['debeDolEDS'];
 $haberDolEDS=$_POST['haberDolEDS'];
 if ($debeEDS!='' and $debeDolEDS=='') {
-	$debeDolEDS=$debeEDS/6.91;
+	$debeDolEDS=$debeEDS/$var;
 }elseif($debeEDS=='' and $debeDolEDS!=''){
-   $debeEDS= $debeDolEDS * 6.91;
+   $debeEDS= $debeDolEDS * $var;
 }
 
 if ($haberEDS!='' and $haberDolEDS=='') {
 	$haberDolEDS=$haberEDS/6.91;
 }elseif($haberEDS=='' and $haberDolEDS!=''){
-   $haberEDS= $haberDolEDS * 6.91;
+   $haberEDS= $haberDolEDS * $var;
 }
 
 $ObsCG=$_POST['ObsCG'];
@@ -455,15 +456,15 @@ $haberCG=$_POST['haberCG'];
 $debeDolCG=$_POST['debeDolCG']; 
 $haberDolCG=$_POST['haberDolCG']; 
 if ($debeCG!='' and $debeDolCG=='') {
-	$debeDolCG=$debeCG/6.91;
+	$debeDolCG=$debeCG/$var;
 }elseif($debeCG=='' and $debeDolCG!=''){
-   $debeCG= $debeDolCG * 6.91;
+   $debeCG= $debeDolCG * $var;
 }
 
 if ($haberCG!='' and $haberDolCG=='') {
-	$haberDolCG=$haberCG/6.91;
+	$haberDolCG=$haberCG/$var;
 }elseif($haberCG=='' and $haberDolCG!=''){
-   $haberCG= $haberDolCG * 6.91;
+   $haberCG= $haberDolCG * $var;
 }
 
 $ObsEDS=$_POST['ObsEDS']; 
@@ -473,15 +474,15 @@ $debeDolEDS=$_POST['debeDolEDS'];
 $haberDolEDS=$_POST['haberDolEDS']; 
 
 if ($debeEDS!='' and $debeDolEDS=='') {
-	$debeDolEDS=$debeEDS/6.91;
+	$debeDolEDS=$debeEDS/$var;
 }elseif($debeEDS=='' and $debeDolEDS!=''){
-   $debeEDS= $debeDolEDS * 6.91;
+   $debeEDS= $debeDolEDS * $var;
 }
 
 if ($haberEDS!='' and $haberDolEDS=='') {
-	$haberDolEDS=$haberEDS/6.91;
+	$haberDolEDS=$haberEDS/$var;
 }elseif($haberEDS=='' and $haberDolEDS!=''){
-   $haberEDS= $haberDolEDS * 6.91;
+   $haberEDS= $haberDolEDS * $var;
 }
 
 
@@ -492,15 +493,15 @@ $haberTHD=$_POST['haberTHD'];
 $debeDolTHD=$_POST['debeDolTHD']; 
 $haberDolTHD=$_POST['haberDolTHD'];
 if ($debeTHD!='' and $debeDolTHD=='') {
-	$debeDolTHD=$debeTHD/6.91;
+	$debeDolTHD=$debeTHD/$var;
 }elseif($debeTHD=='' and $debeDolTHD!=''){
-   $debeTHD= $debeDolTHD * 6.91;
+   $debeTHD= $debeDolTHD * $var;
 }
 
 if ($haberTHD!='' and $haberDolTHD=='') {
-	$haberDolTHD=$haberTHD/6.91;
+	$haberDolTHD=$haberTHD/$var;
 }elseif($haberTHD=='' and $haberDolTHD!=''){
-   $haberTHD= $haberDolTHD * 6.91;
+   $haberTHD= $haberDolTHD * $var;
 }
 
 
