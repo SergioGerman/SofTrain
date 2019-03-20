@@ -5,7 +5,7 @@ if(!isset($_SESSION['usuario'])){
 }
 require('../modelo/conexion.php');
 $id=$_GET['id'];
-foreach ($conexion->query("SELECT * from train where id='$id'") as $row){
+
 ?>
 <html>
 	<head>
@@ -16,6 +16,7 @@ foreach ($conexion->query("SELECT * from train where id='$id'") as $row){
 			<legend>Usted esta editando la Nota Contable</legend>
 		<form method="post" action="../controlador/editarNotaContable.php">
 		<input type="hidden" name="id" value="<?php echo $id; ?>">
+		<?php foreach ($conexion->query("SELECT * from train where id='$id'") as $row){ ?>
 		<table>
 		<tr>
 			<td>
@@ -42,7 +43,7 @@ foreach ($conexion->query("SELECT * from train where id='$id'") as $row){
 			</td>
 			</tr>
 		</table>
-<?php	}?>	
+<?php	} ?>	
 		<table  border=1>
 			
 			<tr>
@@ -818,7 +819,7 @@ foreach ($conexion->query("SELECT * from notaContables where id_carga='$id'") as
                  $totalD=$subTotalDD+$subTotalHD;
              }
 				 ?>
-             }
+             
 
 				<td>SUB TOTAL</td>
 				<td><?php  echo $subTotalD ?></td>
