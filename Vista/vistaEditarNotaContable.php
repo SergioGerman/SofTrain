@@ -5,7 +5,7 @@ if(!isset($_SESSION['usuario'])){
 }
 require('../modelo/conexion.php');
 $id=$_GET['id'];
-
+$var=6.91;
 ?>
 <html>
 	<head>
@@ -234,13 +234,13 @@ foreach ($conexion->query("SELECT * from notaContables where id_carga='$id'") as
 	
 			}
 ?>
-			<tr id="tabla1">
+			<tr id="tabla1"  onclick="window.location = 'vistaNotaContable2.php?id=<?php echo $id; ?>'"  >
 
 				<td>
 					<label>Adelanto Transportista:</label>
 				</td>
 				<td>
-					<input type="text"  value="<?php echo $a13 ?>" name="ObsAT" />
+					<input type="text"  value="<?php echo $a13 ?>" name="ObsAT"  />
 					
 				</td>
 				<td>
@@ -256,7 +256,7 @@ foreach ($conexion->query("SELECT * from notaContables where id_carga='$id'") as
 					<input type="number" step="any" value="<?php echo $a4 ?>" name="haberDolAT" min=0 max=10000000  />					
 				</td>
 			</tr>
-			<tr>
+			<tr id="tabla2" onclick="window.location = 'vistaNotaContable2.php?id=<?php echo $id; ?>'">
 				<td>
 					<label>Cuenta por Pagar:</label>
 				</td>
@@ -277,7 +277,7 @@ foreach ($conexion->query("SELECT * from notaContables where id_carga='$id'") as
 					<input type="number" step="any" value="<?php echo $a8 ?>" name="haberDolCP" min=0 max=10000000  />					
 				</td>
 			</tr>
-			<tr>
+			<tr id="tabla3" onclick="window.location = 'vistaNotaContable2.php?id=<?php echo $id; ?>'">
 				<td>
 					<label>Flete del Transportista:</label>
 				</td>
@@ -812,7 +812,7 @@ foreach ($conexion->query("SELECT * from notaContables where id_carga='$id'") as
                  $subTotalDD=$subTotalDD +$a3+$a7+$a11+$a18;
                  $subTotalHD=$subTotalHD +$a5+$a8+$a12+$a19;
                  $totalB=$subTotalD+$subTotalH;
-                 $totalD=$subTotalDD+$subTotalHD;
+                 $totalD=($subTotalDD+$subTotalHD);
              }elseif($a1==''){
                 
                  $totalB=$subTotalD+$subTotalH;
@@ -855,43 +855,35 @@ foreach ($conexion->query("SELECT * from notaContables where id_carga='$id'") as
 	
 
 	var tabla1 = document.getElementById('tabla1');
-	
+	var tabla2 = document.getElementById('tabla2');
+	var tabla3 = document.getElementById('tabla3');
+
 	 tabla1.addEventListener('mouseover',function(){
 	 	console.log('solbre enciama')
-	   		tabla1.innerHTML =`
-  	             	<td>
-				<label>Adelanto Transportista:</label>
-				</td>
-				<a href="vistaNotaContable2.php?id=<?php echo $id; ?>">anadir</a>
-			
-   		`;
-   		  
+	   			tabla1.style.color="red";
 	   })  
 	 tabla1.addEventListener('mouseout',function(){
 	 	console.log('se salio')
-	   	tabla1.innerHTML =`
-   		
-			<td>
-					<label>Adelanto Transportista:</label>
-				</td>
-				<td>
-					<input type="text"  value="<?php echo $a13 ?>" name="ObsAT" />
-					
-				</td>
-				<td>
-					<input type="number" step="any"  value="<?php echo $a1 ?>" name="haberAT" min=0 max=10000000  />
-				</td>
-				<td>
-					<input type="number" step="any" value="<?php echo $a2 ?>" name="haberAT" min=0 max=10000000  />					
-				</td>
-				<td>
-					<input type="number" step="any" value="<?php echo $a3 ?>" name="debeDolAT" min=0 max=10000000  />					
-				</td>
-				<td>
-					<input type="number" step="any" value="<?php echo $a4 ?>" name="haberDolAT" min=0 max=10000000  />					
-				</td>
-   		`
-   		;
+	   		tabla1.style.color="black";
 	   })  
+    tabla2.addEventListener('mouseover',function(){
+	 	console.log('solbre enciama')
+	   			tabla2.style.color="red";
+	   })  
+	 tabla2.addEventListener('mouseout',function(){
+	 	console.log('se salio')
+	   		tabla2.style.color="black";
+	   })  
+	 tabla3.addEventListener('mouseover',function(){
+	 	console.log('solbre enciama')
+	   			tabla3.style.color="red";
+	   })  
+	 tabla3.addEventListener('mouseout',function(){
+	 	console.log('se salio')
+	   		tabla3.style.color="black";
+	   	
+			
+	   })  
+
 
 </script>
