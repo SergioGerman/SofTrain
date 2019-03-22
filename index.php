@@ -1,42 +1,44 @@
 ﻿<?php require('modelo/conexion.php'); ?>
 <html>
 	<head>
-		<title>Login</title>
+	<link rel="stylesheet" href="frontlogin/assets/css/main.css" />
+		
+	
+	<title>Login</title>
 	</head>
 	
 	<body>
-	<table align="center">
+	<header id="header">
+	<h1><font color="#FF9933">Sof</font>traiN</h1>
+	<!--<p>sistema</p>-->
+	</header>
 		<form action="<?php $_SERVER['PHP_SELF']; ?>" method="POST" > 
-			<tr>
-				<label>
-			<td>
-				Usuario:
-			</td>
-			<td>
-			<input id="usuario" name="usuario" type="text" ></div>
-			</label>
-			</td>
-			</tr>
-			<tr>
-			<td>
-			<div><label>Password:</label>
-			</td>
-			<td>
-			<input id="password" name="password" type="password">			
-			</td>			
-			</tr>
-			<tr>
-			<td></td>
-			<td>
-			<div><input name="login" type="submit" value="login"></div> 
-			</td>
-			</tr>
+		Usuario:
+		<input id="usuario" name="usuario" type="text" >
+		Contraseña:
+		<input id="password" name="password" type="password"><br/>
+		<input name="login" type="submit" value="Ingresar">
+
 		</form> 
 		
-		<br />
+		
 		
 		<div style = "font-size:16px; color:#cc0000;"><?php echo isset($error) ? utf8_decode($error) : '' ; ?></div>
-	</table>
+		
+		<footer id="footer">
+		
+				<ul class="icons">
+					
+					<li><a href="#" class="icon fa-youtube"><span class="label">Twitter</span></a></li>
+                    <li><a href="#" class="icon fa-facebook"><span class="label">Twitter</span></a></li>
+                    <li><a href="#" class="icon fa-twitter"><span class="label">Twitter</span></a></li>
+				</ul>
+				<ul class="copyright">
+					<li>softrain-srl.com</a></li>
+				</ul>
+
+			</footer>
+	<script src="frontlogin/assets/js/main.js"></script>
 	</body>
 </html>
 <?php	
