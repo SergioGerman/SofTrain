@@ -234,9 +234,9 @@ foreach ($conexion->query("SELECT * from notaContables where id_carga='$id'") as
 	
 			}
 ?>
-			<tr id="tabla1"  onclick="window.location = 'vistaNotaContable2.php?id=<?php echo $id; ?>'"  >
+			<tr >
 
-				<td>
+				<td id="tabla1"  onclick="window.location = 'vistaNotaContable2.php?id=<?php echo $id; ?>'"  >
 					<label>Adelanto Transportista:</label>
 				</td>
 				<td>
@@ -256,8 +256,8 @@ foreach ($conexion->query("SELECT * from notaContables where id_carga='$id'") as
 					<input type="number" step="any" value="<?php echo $a4 ?>" name="haberDolAT" min=0 max=10000000  />					
 				</td>
 			</tr>
-			<tr id="tabla2" onclick="window.location = 'vistaNotaContable2.php?id=<?php echo $id; ?>'">
-				<td>
+			<tr >
+				<td id="tabla2" onclick="window.location = 'vistaNotaContable2.php?id=<?php echo $id; ?>'">
 					<label>Cuenta por Pagar:</label>
 				</td>
 				<td>
@@ -277,8 +277,8 @@ foreach ($conexion->query("SELECT * from notaContables where id_carga='$id'") as
 					<input type="number" step="any" value="<?php echo $a8 ?>" name="haberDolCP" min=0 max=10000000  />					
 				</td>
 			</tr>
-			<tr id="tabla3" onclick="window.location = 'vistaNotaContable2.php?id=<?php echo $id; ?>'">
-				<td>
+			<tr >
+				<td id="tabla3" onclick="window.location = 'vistaNotaContable2.php?id=<?php echo $id; ?>'">
 					<label>Flete del Transportista:</label>
 				</td>
 				<td>
@@ -811,17 +811,18 @@ foreach ($conexion->query("SELECT * from notaContables where id_carga='$id'") as
                  $subTotalH=$subTotalH +$a2+$a6+$a10+$a17;
                  $subTotalDD=$subTotalDD +$a3+$a7+$a11+$a18;
                  $subTotalHD=$subTotalHD +$a5+$a8+$a12+$a19;
-                 $totalB=$subTotalD+$subTotalH;
-                 $totalD=($subTotalDD+$subTotalHD);
+                 $totalB=$subTotalH-$subTotalD;
+                 $totalD=$subTotalHD-$subTotalDD;
              }elseif($a1==''){
                 
-                 $totalB=$subTotalD+$subTotalH;
-                 $totalD=$subTotalDD+$subTotalHD;
+                 $totalB=$subTotalH-$subTotalD;
+                 $totalD=$subTotalHD-$subTotalDD;
              }
 				 ?>
              
 
 				<td>SUB TOTAL</td>
+				
 				<td><?php  echo $subTotalD ?></td>
 				<td><?php  echo $subTotalH ?></td>
 				<td><?php  echo $subTotalDD ?></td>
@@ -831,8 +832,11 @@ foreach ($conexion->query("SELECT * from notaContables where id_carga='$id'") as
 			<tr>
 				<td></td>
 				<td>TOTAL</td>
-				<td colspan=2 align="center"><?php  echo $totalB ?></td>				
-				<td colspan=2 align="center"><?php  echo $totalD ?></td>				
+				
+                  	<td colspan=2 align="center">  <?php  echo $totalB ?></td>
+                  
+                  	<td colspan=2 align="center">  <?php  echo $totalD ?></td>
+                 		
 			</tr>
 			<tr>
 				<td>
