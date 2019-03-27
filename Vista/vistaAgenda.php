@@ -84,8 +84,15 @@ $id=$row['id'];
 <?php
 }
 ?>
-	<td><?php echo $row['facSoftrain'] ?></td>
-	<td><?php echo $row['facturaApoyo'] ?></td>
+<?php
+
+$pathFS = $row['facSoftrain'];
+$pathFA = $row['facturaApoyo'];
+$fileFS = basename($pathFS, ".jpg");
+$fileFA = basename($pathFA, ".jpg");
+?>
+	<td><?php echo $fileFS; ?></td>
+	<td><?php echo $fileFA; ?></td>
 	<?php
 	$query2="select id_carga from notaContables where id_carga='$id'";
 	$resultado=mysqli_query($conexion, $query2);

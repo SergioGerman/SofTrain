@@ -1,102 +1,166 @@
-<?php
+﻿<?php
 session_start();
 if(!isset($_SESSION['usuario'])){
-	header('location: ../index.php');
+	header('location: index.php');
 }
 //recuperando los datos de la session
 $usuario=$_SESSION['usuario'];
-require('../vista/vistaAgenda.php');
-?>
-<?php
-foreach ($conexion->query("SELECT * from usuarios where usuario='$usuario'") as $row){
-	$id_usuario=$row['id'];
-}
 ?>
 <html>
 	<head>
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css">
+  <!-- Bootstrap core CSS -->
+  <link href="../css/bootstrap.min.css" rel="stylesheet">
+  <!-- Material Design Bootstrap -->
+  <link href="../css/mdb.min.css" rel="stylesheet">
+  <!-- Your custom styles (optional) -->
+  <link href="../css/style.min.css" rel="stylesheet">
+
+  <link href="../csscomp/estilos.css" rel="stylesheet">
+
+  <script src="../csscomp/sweetalert.min.js"></script>
+    <script src="../csscomp/alertas.js"></script>
+    <link rel="stylesheet" type="text/css" href="../csscomp/sweetalert.css">
+
+  <style type="text/css">
+    html,
+    body,
+    header,
+    .view {
+      height: 100%;
+    }
+
+    @media (max-width: 740px) {
+      html,
+      body,
+      header,
+      .view {
+        height: 1000px;
+      }
+    }
+
+    @media (min-width: 800px) and (max-width: 850px) {
+      html,
+      body,
+      header,
+      .view {
+        height: 650px;
+      }
+    }
+    @media (min-width: 800px) and (max-width: 850px) {
+              .navbar:not(.top-nav-collapse) {
+                  background: #1C2331!important;
+              }
+          }
+  </style>
 		<title>Formulario</title>
 	</head>
 	<body>
+		   <!-- Navbar -->
+  <nav class="navbar fixed-top navbar-expand-lg navbar-dark scrolling-navbar">
+    <div class="container">
+
+      <!-- Brand -->
+      <a class="navbar-brand" href="#" >
+        <strong>SOFTRAIN</strong>
+      </a>
+
+      <!-- Collapse -->
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+        aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <!-- Links -->
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
+        <!-- Left -->
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="#">
+						Area de Trabajo
+              <span class="sr-only">(current)</span>
+            </a>
+          </li>
+          <!--  <li class="nav-item">
+            <a class="nav-link" href="https://mdbootstrap.com/docs/jquery/" target="_blank">Registros</a>
+          </li>-->
+
+
+        </ul>
+
+        <!-- Right -->
+        <ul class="navbar-nav nav-flex-icons">
+
+          <li class="nav-item">
+            <a href="logout.php"
+							target="_blank">
+							<button type="button" class="btn btn-orange btn-sm">
+							Cerrar Sesion
+				</button>
+            </a>
+          </li>
+        </ul>
+
+      </div>
+
+    </div>
+  </nav>
+  <!-- Navbar -->
+
+
+		 <br><br><br>
+
+      <?php
+		  require('../vista/vistaAgenda.php')
+		  ?>
+			<?php
+			foreach ($conexion->query("SELECT * from usuarios where usuario='$usuario'") as $row){
+				$id_usuario=$row['id'];
+			}
+			?>
+
+  <!-- Full Page Intro -->
+
 		<form method="post" action="enviar.php" enctype="multipart/form-data">
-		<input type="hidden" name="id_usuario" value="<?php echo $id_usuario; ?>">
+			<input type="hidden" name="id_usuario" value="<?php echo $id_usuario; ?>">
 		<fieldset>
 			<legend>Ingrese la informacion de la carga</legend>
 		<table border=0>
 			<tr>
-				<td>
-					Nro. Registro:
-				</td>
-				<td>
-					<input type="text" name="numRegistro" required />
-				</td>
+				<td>Nro. Registro:</td>
+				<td><input type="text" name="numRegistro" required /></td>
 			</tr>
 			<tr>
-				<td>
-					<label>Fecha:
-				</td>
-				<td>
-					<input type="date" name="fecha" required="true" />
-					</label>
-				</td>
+				<td><label>Fecha:</label></td>
+				<td><input type="date" name="fecha" required="true" /></td>
 			</tr>
 			<tr>
-				<td>
-					<label>Fecha de asignación:
-				</td>
-				<td>
-					<input type="date" name="fechaAsignacion" />
-					</label>
-				</td>
+				<td><label>Fecha de asignación:</label></td>
+				<td><input type="date" name="fechaAsignacion" /></td>
 			</tr>
 			<tr>
-				<td>
-					<label>Fecha de arribo
-				</td>
-				<td>
-					<input type="date" name="fechaArribo" required/>
-					</label>
-				</td>
+				<td><label>Fecha de arribo</label></td>
+				<td><input type="date" name="fechaArribo" /></td>
 			</tr>
 			<tr>
-				<td>
-					<label>Fecha devolucion:
-				</td>
-				<td>
-					<input type="date" name="fechaDev" />
-					</label>
-				</td>
+				<td><label>Fecha devolucion:</label></td>
+				<td><input type="date" name="fechaDev"/></td>
 			</tr>
 			<tr>
-				<td>
-					<label>Placa de automovil:
-				</td>
-				<td>
-					<input type="text" name="placa" />
-					</label>
-				</td>
+				<td><label>Placa de automovil:</label></td>
+				<td><input type="text" name="placa" /></td>
 			</tr>
 			<tr>
-				<td>
-					<label>Empresa:
-				</td>
-				<td>
-					<input type="text" name="empresa" />
-					</label>
-				</td>
+				<td><label>Empresa:</label></td>
+				<td><input type="text" name="empresa" /></td>
 			</tr>
 			<tr>
-				<td>
-					<label>Conductor:
-				</td>
-				<td>
-					<input type="text" name="conductor" />
-					</label>
-				</td>
+				<td><label>Conductor:</label></td>
+				<td><input type="text" name="conductor" /></td>
 			</tr>
 			<tr>
-				<td>
-					<labell>Naviera:</label>
-				</td>
+				<td>Naviera:</td>
 				<td>
 					<select name="naviera" >
 					<option value="Mapag Lloyd">Mapag Lloyd</option>
@@ -112,100 +176,61 @@ foreach ($conexion->query("SELECT * from usuarios where usuario='$usuario'") as 
 					</select>
 				</td>
 			</tr>
-			<!--tr>
-				<td>
-					<label>Bill of lading:</label>
-				</td>
-				<td>
-					<input type="file" name="fichero" /><br/>
-				</td>
-			</tr-->
 			<tr>
-				<td>
-					<label>tamanho de contenedor:</label>
-				</td>
-				<td>
-					<input type="text" name="tamCont" />
-				</td>
+				<td><label>tamanho de contenedor:</label></td>
+				<td><input type="number" name="tamCont" step="any"/></td>
 			</tr>
 			<tr>
-				<td>
-					<label>Contenedor:
-				</td>
-				<td>
-					<input type="text" name="contenedor" />
-					</label>
-				</td>
+				<td><label>Contenedor:</label></td>
+				<td><input type="text" name="contenedor" /></td>
 			</tr>
 			<tr>
-				<td>
-					<label>Cliente:
-				</td>
-				<td>
-					<input type="text" name="cliente" />
-					</label>
-				</td>
+				<td><label>Cliente:</label></td>
+				<td><input type="text" name="cliente" /></td>
 			</tr>
 			<tr>
-				<td>
-					<label>Remit/Consig:
-				</td>
-				<td>
-					<input type="text" name="remitConsig" />
-					</label>
-				</td>
+				<td><label>Remit/Consig:</label></td>
+				<td><input type="text" name="remitConsig" /></td>
 			</tr>
 			<tr>
-				<td>
-					<label>Peso:
-				</td>
-				<td>
-					<input type="text" name="peso" />
-					</label>
-				</td>
+				<td><label>Peso:</label></td>
+				<td><input type="number" name="peso" step="any"/></td>
 			</tr>
 			<tr>
-				<td>
-					<label>Detalle:
-				</td>
-				<td>
-					<input type="text" name="detalle" />
-					</label>
-				</td>
+				<td><label>Detalle:</label></td>
+				<td><input type="text" name="detalle" /></td>
 			</tr>
 			<tr>
-				<td>
-					<label>Tramo de la carga:
-				</td>
-				<td>
-					<input type="text" name="tramo" />
-					</label>
-				</td>
+				<td><label>Tramo de la carga:</label></td>
+				<td><input type="text" name="tramo" /></td>
 			</tr>
 			<tr>
-				<td>
-					<label>Factura Softrain</label>
-				</td>
-				<td>
-					<input type="file" name="ficheroFS" /><br/>
-				</td>
+				<td><label>Factura Softrain:</label></td>
+				<td><input type="file" name="ficheroFS" /></td>
 			</tr>
 			<tr>
-				<td>
-					<label>Factura Apoyo:</label>
-				</td>
-				<td>
-					<input type="file" name="ficheroFA" /><br/>
-				</td>
+				<td><label>Factura Apoyo:</label></td>
+				<td><input type="file" name="ficheroFA" /></td>
 			</tr>
 			<tr>
 				<td></td>
-				<td>
-					<input type="submit" value="enviar"/>
-				</td>
+				<td><input type="submit" value="enviar"/></td>
 			</tr>
 		</table>
 		</fieldset>
 		</form>
+
+		<script type="text/javascript" src="../js/jquery-3.3.1.min.js"></script>
+  <!-- Bootstrap tooltips -->
+  <script type="text/javascript" src="../js/popper.min.js"></script>
+  <!-- Bootstrap core JavaScript -->
+  <script type="text/javascript" src="../js/bootstrap.min.js"></script>
+  <!-- MDB core JavaScript -->
+  <script type="text/javascript" src="../js/mdb.min.js"></script>
+  <!-- Initializations -->
+  <script type="text/javascript">
+    // Animations initialization
+    new WOW().init();
+  </script>
 	</body>
 </html>
