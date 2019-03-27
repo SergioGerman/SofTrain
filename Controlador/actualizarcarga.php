@@ -5,12 +5,10 @@ $fecha=$_POST['fecha'];
 $numRegistro = $_POST['numRegistro'];
 $fechaAsignacion = $_POST['fechaAsignacion'];
 $fechaArribo = $_POST['fechaArribo'];
-//$fechaLimDev = $_POST['fechaLimDev'];
 $fechaDev = $_POST['fechaDev'];
 $placa = $_POST['placa'];
 $empresa = $_POST['empresa'];
 $naviera = $_POST['naviera'];
-$bol = $_POST['bol'];
 $tamCont = $_POST['tamCont'];
 $contenedor = $_POST['contenedor'];
 $remitConsig = $_POST['remitConsig'];
@@ -18,9 +16,10 @@ $peso = $_POST['peso'];
 $detalle = $_POST['detalle'];
 $tramo = $_POST['tramo'];
 $facSoftrain = $_POST['facSoftrain'];
-$facApoyo = $_POST['facApoyo'];
-$conductor = $_POST['conductor'];
-$cliente = $_POST['cliente'];	
+$cliente = $_POST['cliente'];
+//$facApoyo = $_POST['facApoyo'];
+//$conductor = $_POST['conductor'];
+
 if($naviera=='Mapag Lloyd'||$naviera=='MSC'||$naviera=='Maersk'||$naviera=='Cosco'|| $naviera=='Evergreen lin'||$naviera=='Sea land'||$naviera=='CSAV'){
 	//$fecha = date('y-m-d');
 	$fechaLimDev2 = strtotime('+21 day', strtotime($fecha));
@@ -44,7 +43,7 @@ facSoftrain='$facSoftrain',facturaApoyo='$facApoyo',naviera='$naviera',
 numBillOflanding='$bol',fechaDev='$fechaDev',placa='$placa',empresa='$empresa',
 conductor='$conductor',tamCont='$tamCont',
 contenedor='$contenedor',cliente='$cliente',remitConsig='$remitConsig',
-tramo='$tramo' where id=$id";	
+tramo='$tramo' where id=$id";
 }elseif($naviera=='Seabord Marine'){
 	//$today = date('y-m-d');
 	$fechaLimDev2 = strtotime('+22 day', strtotime($fecha));
@@ -56,13 +55,13 @@ facSoftrain='$facSoftrain',facturaApoyo='$facApoyo',naviera='$naviera',
 numBillOflanding='$bol',fechaDev='$fechaDev',placa='$placa',empresa='$empresa',
 conductor='$conductor',tamCont='$tamCont',
 contenedor='$contenedor',cliente='$cliente',remitConsig='$remitConsig',
-tramo='$tramo' where id=$id";	
+tramo='$tramo' where id=$id";
 }
 if($conexion->query($query)===true){
 	header("location: Formulario.php");
 }else{
 	die('error al insertar datos'.$conexion->error);
 }
-//}	
+//}
 
-?> 
+?>
