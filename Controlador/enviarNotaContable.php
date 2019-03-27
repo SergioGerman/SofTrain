@@ -504,14 +504,28 @@ if ($haberTHD!='' and $haberDolTHD=='') {
    $haberTHD= $haberDolTHD * $var;
 }
 
-
+$subToDebe=$_POST['subToDebe'];
+$subToHaber=$_POST['subToHaber'];
+$subToDebeDol=$_POST['subToDebeDol'];
+$subToHaberDol=$_POST['subToHaberDol'];
+$TotalBol=$_POST['TotalBol'];
+$TotalDol=$_POST['TotalDol'];
 $ObsCP=$_POST['ObsCP'];
-/*$ObsOtro2=$_POST['ObsOtros2'];
-$debeOtro2=$_POST['debeOtros2'];
-$haberOtro2=$_POST['debeOtros2'];
-$debeDolOtro2=$_POST['debeDolOtros2'];
-$haberDolOtro2=$_POST['haberDolOtros2'];*/
-//
+/*
+ $subToDebe=  $debeAC+$debeFT+$debeL+$debeTHC+$debeTHD+$debeC+$debeEDF+$debeGI+$debeGO+$debeTD+$debePCont+$debeDC+$debeG+$debeA+$debePC+$debeDP+$debePAA+$debeAlm+$debeTra+$debeEst+$debeCC+$debeCG+$debeEDS;
+
+  $subToHaber=  $haberAC+$haberFT+$haberL+$haberTHC+$haberTHD+$haberC+$haberEDF+ $haberEDS+ $haberGI+$haberGO+ $haberTD+$haberPCont+$haberDC+$haberG+
+				$haberA+$haberPC+$haberDP+ $haberPAA+ $haberAlm+ $haberTra+$haberEst+$haberCC+$haberCG;
+				
+
+   $subToDebeDol=$debeDolAC+$debeDolFT+$debeDolL+$debeDolTHC+$debeDolTHD+$debeDolC+$debeDolEDF+$debeDolEDS+$debeDolGI+$debeDolGO+ $debeDolTD+ $debeDolPCont+ $debeDolDC+$debeDolG+$debeDolA+$debeDolPC+$debeDolDP+$debeDolPAA+$debeDolAlm+$debeDolTra+$debeDolEst+$debeDolCG+$debeDolCC;
+
+   $subToHaberDol= $haberDolAC+$haberDolFT+$haberDolL+$haberDolTHC+$haberDolTHD+$haberDolC+$haberDolEDF+$haberDolEDS+$haberDolGI+$haberDolGO+$haberDolTD+$haberDolPCont+$haberDolDC+$haberDolG+$haberDolA+$haberDolPC+$haberDolDP+$haberDolPAA+$haberDolAlm+$haberDolTra+$haberDolEst+$haberDolCG+$haberDolCC;
+
+
+    $TotalBol=$subToDebe-$subToHaber;
+    $TotalDol=$subToDebeDol-$subToHaberDol;
+  */  
 
 //
 $query = "INSERT INTO notacontables (
@@ -566,8 +580,8 @@ ObsCP, id_carga) VALUES
 '$ObsTra', '$debeTra','$haberTra', '$debeDolTra', '$haberDolTra',
 '$ObsEst', '$debeEst','$haberEst', '$debeDolEst','$haberDolEst',
 '$ObsOtro',
-NULL, NULL, NULL, NULL,
-NULL, NULL,
+'$subToDebe', '$subToHaber', '$subToDebeDol', '$subToHaberDol',
+'$TotalBol', '$TotalDol',
 '$haberPCont',
 '$ObsCC', '$debeCC', '$haberCC', '$debeDolCC', '$haberDolCC',
 '$ObsFTrans',
