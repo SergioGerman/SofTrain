@@ -101,7 +101,7 @@ foreach ($conexion->query("SELECT * from notaContables where id_carga='$id'") as
 	$a18='0';
 	$a19='0';
 	$a20='0';
-   $subTotalD=  $row['debeAC']+
+   $subToDebe=  $row['debeAC']+
 				$row['debeFT']+
 				$row['debeL']+
 				$row['debeTHC']+
@@ -126,7 +126,7 @@ foreach ($conexion->query("SELECT * from notaContables where id_carga='$id'") as
 				$row['debeEDS'];
 
  
-   $subTotalH=  $row['haberAC']+
+   $subToHaber=  $row['haberAC']+
 				$row['haberFT']+
 				$row['haberL']+
 				$row['haberTHC']+
@@ -151,7 +151,7 @@ foreach ($conexion->query("SELECT * from notaContables where id_carga='$id'") as
 				$row['haberCG'];
 				;
 
-   $subTotalDD=$row['debeDolAC']+
+   $subToDebeDol=$row['debeDolAC']+
 				$row['debeDolFT']+
 				$row['debeDolL']+
 				$row['debeDolTHC']+
@@ -175,7 +175,7 @@ foreach ($conexion->query("SELECT * from notaContables where id_carga='$id'") as
 				$row['debeDolCG']+
 				$row['debeDolCC'];
 
-   $subTotalHD=     $row['haberDolAC']+
+   $subToHaberDol=     $row['haberDolAC']+
 					$row['haberDolFT']+
 					$row['haberDolL']+
 					$row['haberDolTHC']+
@@ -807,35 +807,47 @@ foreach ($conexion->query("SELECT * from notaContables where id_carga='$id'") as
 				<td></td>
 				<?php
 				if($a1!=''){
-				 $subTotalD=$subTotalD +$a1+$a5+$a9+$a16;
-                 $subTotalH=$subTotalH +$a2+$a6+$a10+$a17;
-                 $subTotalDD=$subTotalDD +$a3+$a7+$a11+$a18;
-                 $subTotalHD=$subTotalHD +$a5+$a8+$a12+$a19;
-                 $totalB=$subTotalH-$subTotalD;
-                 $totalD=$subTotalHD-$subTotalDD;
+				 $subToDebe=$subToDebe +$a1+$a5+$a9+$a16;
+                 $subToHaber=$subToHaber +$a2+$a6+$a10+$a17;
+                 $subToDebeDol=$subToDebeDol +$a3+$a7+$a11+$a18;
+                 $subToHaberDol=$subToHaberDol +$a4+$a8+$a12+$a19;
+                  $TotalBol=$subToHaber-$subToDebe;
+                 $TotalDol=$subToHaberDol-$subToDebeDol;
              }elseif($a1==''){
                 
-                 $totalB=$subTotalH-$subTotalD;
-                 $totalD=$subTotalHD-$subTotalDD;
+                 $TotalBol=$subToHaber-$subToDebe;
+                 $TotalDol=$subToHaberDol-$subToDebeDol;
              }
 				 ?>
              
 
 				<td>SUB TOTAL</td>
-				
-				<td><?php  echo $subTotalD ?></td>
-				<td><?php  echo $subTotalH ?></td>
-				<td><?php  echo $subTotalDD ?></td>
-				<td><?php  echo $subTotalHD ?></td>
+
+				<input type="number"  step="any" name="subToDebe" value="<?php echo $subToDebe ?>"   hidden />
+				<input type="number"   step="any" name="subToHaber" value="<?php echo $subToHaber ?>" hidden />
+				<input type="number"   step="any" name="subToDebeDol" value="<?php echo $subToDebeDol ?>" hidden />
+				<input type="number"   step="any" name="subToHaberDol" value="<?php echo $subToHaberDol ?>" hidden />
+
+				<td><?php echo $subToDebe ?> </td>
+				<td><?php echo $subToHaber ?> </td>
+				<td><?php echo $subToDebeDol ?> </td>
+				<td><?php echo $subToHaberDol ?> </td>
+
+
+
+			
 
 			</tr>
 			<tr>
 				<td></td>
 				<td>TOTAL</td>
-				
-                  	<td colspan=2 align="center">  <?php  echo $totalB ?></td>
+				       <input type="number" step="any"  name="TotalBol" value="<?php echo $TotalBol ?>" hidden/>
+				       <input type="number"   step="any" name="TotalDol" value="<?php echo $TotalDol ?>" hidden />
+
+				    	<td colspan=2 align="center" ><?php echo $TotalBol ?> </td>
+				       <td colspan=2 align="center" ><?php echo $TotalDol ?></td>
+
                   
-                  	<td colspan=2 align="center">  <?php  echo $totalD ?></td>
                  		
 			</tr>
 			<tr>
