@@ -76,7 +76,7 @@ $id=$row['id'];
 	$columna=mysqli_fetch_array($resultado);
 	if(empty($columna['id_train'])){
 	?>
-	<td><a href="../vista/formFicheros.php?id=<?php echo $id; ?>">añadir</a></td>
+	<td><a href="../vista/verFicheros.php?id=<?php echo $id; ?>">añadir</a></td>
 	<?php
 }else{
 	?>
