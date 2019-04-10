@@ -40,7 +40,7 @@ foreach ($conexion->query("SELECT * from train where id='$id'") as $row){
 			</td>
 			</tr>
 		</table>
-<?php	
+<?php
 }
 $id_train=$_GET['id'];
     foreach ($conexion->query("SELECT *	from train where id='$id_train'") as $row2){
@@ -60,33 +60,33 @@ $id_train=$_GET['id'];
   <?php
   if(!empty($rutaFS) && !empty($rutaFA)){
   ?>
-<tr>  
+<tr>
   <td><iframe src="../Ficheros/<?php echo $rutaFS; ?>"></iframe><a href="../controlador/eliminarArchivo.php?idFS=<?php echo $row2['id']; ?>&rutaFS=<?php echo $row2['facSoftrain']; ?>">eliminar</a></td>
   <td><iframe src="../Ficheros/<?php echo $rutaFA; ?>"></iframe><a href="../controlador/eliminarArchivo.php?idFA=<?php echo $row2['id']; ?>&rutaFA=<?php echo $row2['facturaApoyo']; ?>">eliminar</a></td>
   <?php
   }elseif(!empty($rutaFS) && empty($rutaFA) ){
   ?>
 	<td><iframe src="../Ficheros/<?php echo $rutaFS; ?>"></iframe><a href="../controlador/eliminarArchivo.php?idFS=<?php echo $row2['id']; ?>&rutaFS=<?php echo $row2['facSoftrain']; ?>">eliminar</a></td>
-	<td>carga un archivo<br><br><input type="file" name="ficheroFA" /></td>  
+	<td>carga un archivo<br><br><input type="file" name="ficheroFA" /></td>
 
   <?php
   }elseif(!empty($rutaFA) && empty($rutaFS)){
 ?>
 	<td>carga un archivo<br><br><input type="file" name="ficheroFS" /></td>
-	<td><iframe src="../Ficheros/<?php echo $rutaFA; ?>"></iframe><a href="../controlador/eliminarArchivo.p?idFA=<?php echo $row2['id']; ?>&rutaFA=<?php echo $row2['facturaApoyo']; ?>">eliminar</a></td>
+	<td><iframe src="../Ficheros/<?php echo $rutaFA; ?>"></iframe><a href="../controlador/eliminarArchivo.php?idFA=<?php echo $row2['id']; ?>&rutaFA=<?php echo $row2['facturaApoyo']; ?>">eliminar</a></td>
 <?php
   }else{
 ?>
 	<td>carga un archivo<br><br><input type="file" name="ficheroFS" /></td>
 	<td>carga un archivo<br><br><input type="file" name="ficheroFA" /></td>
-<?php	  
+<?php
   }
   ?>
  </tr>
 <?php
 }
 ?>
-	
+
 </table>
 </fieldset>
 <fieldset>
@@ -117,7 +117,7 @@ $id_train=$_GET['id'];
 <td><input type="file" name="fichero" /><br/></td>
 </tr>
 <tr>
-  
+
 </tr>
 <tr>
   <td><hr></td>
