@@ -4,7 +4,7 @@
 	foreach ($conexion->query("SELECT * from train where id='$id'") as $row){
 
 ?>
-<form method="post" action="actualizarcarga.php">
+<form method="post" action="actualizarcarga.php" enctype="multipart/form-data">
 		<fieldset>
 			<legend>Ingrese la informacion de la carga</legend>
 		<table border=0>
@@ -61,7 +61,7 @@
 			</tr>
 			<tr>
 				<td><label>tamanho de contenedor:</label></td>
-				<td><input type="text" name="tamCont" value="<?php echo $row['tamCont']?>"/></td>
+				<td><input type="number" name="tamCont" value="<?php echo $row['tamCont']?>" step="any"/></td>
 			</tr>
 			<tr>
 				<td><label>Contenedor:</label></td>
@@ -77,7 +77,7 @@
 			</tr>
 			<tr>
 				<td><label>Peso:</label></td>
-				<td><input type="text" name="peso" value="<?php echo $row['pesoKg']?>"/></td>
+				<td><input type="number" name="peso" value="<?php echo $row['pesoKg']?>" step="any"/></td>
 			</tr>
 			<tr>
 				<td><label>Detalle:</label></td>
@@ -88,12 +88,12 @@
 				<td><input type="text" name="tramo" value="<?php echo $row['tramo']?>"/></td>
 			</tr>
 			<tr>
-				<td><label>Factura softrain:</label></td>
-				<td><input type="file" name="facSoftrain" value="<?php echo $row['facSoftrain']?>"/></td>
+				<td><label>Factura Softrain:</label></td>
+				<td><input type="file" name="ficheroFS" /></td>
 			</tr>
 			<tr>
 				<td><label>Factura apoyo:</label></td>
-				<td><input type="file" name="facApoyo" value="<?php echo $row['facturaApoyo']?>"/></td>
+				<td><input type="file" name="ficheroFA"/></td>
 			</tr>
 			<tr>
 				<td></td>
