@@ -32,8 +32,15 @@ $uploadFS=$ruta . $nombreFS;
 $uploadFA=$ruta . $nombreFA;
 if(!file_exists($uploadFS) && !file_exists($uploadFA)){ // verificar si el archivo existe en la BD.
 if(move_uploaded_file($_FILES['ficheroFS']['tmp_name'], $uploadFS) && move_uploaded_file($_FILES['ficheroFA']['tmp_name'], $uploadFA)) {// movemos el archivo a su ubicacion
+	//elimina el archivo de la base de datos
+	foreach($conexion->query("Select * from train where id='$id'") as $row){
+		$rutaFS=$row['facSoftrain'];
+		$rutaFA=$row['facturaApoyo'];
+	}
+	unlink("../Ficheros/$rutaFS");
+	unlink("../Ficheros/$rutaFA");
 	if($naviera=='Mapag Lloyd'||$naviera=='MSC'||$naviera=='Maersk'||$naviera=='Cosco'|| $naviera=='Evergreen lin'||$naviera=='Sea land'||$naviera=='CSAV'){
-	//$fecha = date('y-m-d');
+	//Comveriir la fecha
 	$fechaLimDev2 = strtotime('+21 day', strtotime($fechaArribo));//se suman 21days a fecha limite
 	$fechaLimDev2 = date ('y-m-d', $fechaLimDev2);
 //Preparamos la orden SQL
@@ -92,6 +99,12 @@ if($conexion->query($query)===true){
 	$uploadFS=$ruta . $nombreFS;
 	if(!file_exists($uploadFS)) { // verificar si el archivo existe en la BD.
 	if(move_uploaded_file($_FILES['ficheroFS']['tmp_name'], $uploadFS)) {// movemos el archivo a su ubicacion
+		//elimina el archivo de la base de datos
+			foreach($conexion->query("Select * from train where id='$id'") as $row){
+				$rutaFS=$row['facSoftrain'];
+			}
+			unlink("../Ficheros/$rutaFS");
+			//Preguntar por la naviera
 	if($naviera=='Mapag Lloyd'||$naviera=='MSC'||$naviera=='Maersk'||$naviera=='Cosco'|| $naviera=='Evergreen lin'||$naviera=='Sea land'||$naviera=='CSAV'){
 	//$fecha = date('y-m-d');
 	$fechaLimDev2 = strtotime('+21 day', strtotime($fechaArribo));//se suman 21days a fecha limite
@@ -150,7 +163,13 @@ if($conexion->query($query)===true){
 	$nombreFA=str_replace(" ", "", $nombreFA);//sustituyendo la expresion regular
 	$uploadFA=$ruta . $nombreFA;
 	if(!file_exists($uploadFA)) { // verificar si el archivo existe en la BD.
-	if(move_uploaded_file($_FILES['ficheroFA']['tmp_name'], $uploadFA)) {// movemos el archivo a su ubicacion	
+	if(move_uploaded_file($_FILES['ficheroFA']['tmp_name'], $uploadFA)) {// movemos el archivo a su ubicacion
+		//elimina el archivo de la base de datos
+			foreach($conexion->query("Select * from train where id='$id'") as $row){			
+				$rutaFA=$row['facturaApoyo'];
+			}
+			unlink("../Ficheros/$rutaFA");
+			//preguntar por la naviera
 	if($naviera=='Mapag Lloyd'||$naviera=='MSC'||$naviera=='Maersk'||$naviera=='Cosco'|| $naviera=='Evergreen lin'||$naviera=='Sea land'||$naviera=='CSAV'){
 	//$fecha = date('y-m-d');
 	$fechaLimDev2 = strtotime('+21 day', strtotime($fechaArribo));//se suman 21days a fecha limite
@@ -192,7 +211,7 @@ if($conexion->query($query)===true){
 }else{
 	die('error al insertar datos'.$conexion->error);
 }
-		
+
 	}else{
 		echo "error de envio de archivo a su ubicacion";
 	}
