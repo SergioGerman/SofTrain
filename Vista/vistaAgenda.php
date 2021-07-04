@@ -2,6 +2,7 @@
 <?php
 	require('../modelo/conexion.php');
 ?>
+<!--script para la confirmacion de eliminacion-->
 <script>
 	function eliminarcarga(id){
 		if(confirm("¡Se eliminará este registro permanentemente!")==true){
@@ -11,10 +12,11 @@
 		}
 	}
 </script>
+<!--listado de los registros ingresados en la base de datos-->
 <fieldset>
 <legend>Información de la cargas realizadas</legend>
 <table border='1' class="table table-striped">
-  	
+
 		<thead>
 		<tr>
 			<th>N. REGISTRO</th>
@@ -28,13 +30,13 @@
 			<th>Empresa</th>
 			<th>Conductor</th>
 			<th>Naviera</th>
-			<th>Bill of Landing</th>
 			<th>Tam. Contenedor</th>
 			<th>Contenedor</th>
 			<th>Cliente</th>
 			<th>Remit/Consig</th>
 			<th>PESO</th>
 			<th>Detalle Tramo</th>
+			<th>Bill of Landing</th>
 			<th>Fact. Softrain</th>
 			<th>Fact. Apoyo</th>
 			<th>Nota Contable</th>
@@ -42,12 +44,13 @@
 		</tr>
 		</thead>
 <?php foreach ($conexion->query("SELECT *, datediff(fechaLimDev,fechaDev) as sobre,
-										date_format(fecha, '%d/%m/%y') as fecha, 
+										date_format(fecha, '%d/%m/%y') as fecha,
 										date_format(fechaAsignacion, '%d/%m/%y') as fechaAsignacion,
 										date_format(fechaArribo, '%d/%m/%y') as fechaArribo,
 										date_format(fechaLimDev, '%d/%m/%y') as fechaLimDev,
 										date_format(fechaDev, '%d/%m/%y') as fechaDev
 										from train") as $row){
+$id=$row['id'];
 ?>
 <tr>
 	<td><?php echo $row['numRegistro'] ?></td>
@@ -61,26 +64,45 @@
 	<td><?php echo $row['empresa'] ?></td>
 	<td><?php echo $row['conductor'] ?></td>
 	<td><?php echo $row['naviera'] ?></td>
-	<td><?php echo $row['numBillOflanding'] ?></td>
 	<td><?php echo $row['tamCont'] ?></td>
-    <td><?php echo $row['contenedor'] ?></td>
+  <td><?php echo $row['contenedor'] ?></td>
 	<td><?php echo $row['cliente'] ?></td>
 	<td><?php echo $row['remitConsig'] ?></td>
 	<td><?php echo $row['pesoKg'] ?></td>
 	<td><?php echo $row['detalle'] ?></td>
-	<td><?php echo $row['facSoftrain'] ?></td>
-	<td><?php echo $row['facturaApoyo'] ?></td>
 	<?php
-	$id=$row['id'];
+	$queryFile="select id_train, nombre from ficheros where id_train='$id'";
+	$resultado=mysqli_query($conexion, $queryFile);
+	$columna=mysqli_fetch_array($resultado);
+	if(empty($columna['id_train'])){
+	?>
+	<td><a href="../vista/verFicheros.php?id=<?php echo $id; ?>">añadir</a></td>
+	<?php
+}else{
+	?>
+	<td><a href="../vista/verFicheros.php?id=<?php echo $id; ?>"><?php echo ($columna['nombre']); ?></a></td>
+<?php
+}
+?>
+<?php
+
+$pathFS = $row['facSoftrain'];
+$pathFA = $row['facturaApoyo'];
+$fileFS = basename($pathFS, ".jpg");
+$fileFA = basename($pathFA, ".jpg");
+?>
+	<td><?php echo $fileFS; ?></td>
+	<td><?php echo $fileFA; ?></td>
+	<?php
 	$query2="select id_carga from notaContables where id_carga='$id'";
 	$resultado=mysqli_query($conexion, $query2);
 	$columna=mysqli_fetch_array($resultado);
 	if(empty($columna['id_carga'])){
-	?>
+		?>
 		<td><a href="../vista/vistaNotaContable.php?id=<?php echo $row['id'] ?>">anadir</a></td>
 	<?php
 	}else{?>
-		<td><a href="../vista/vistaEditarNotaContable.php?id=<?php echo $id ?>">ver</a></td>	
+		<td><a href="../vista/vistaEditarNotaContable.php?id=<?php echo $id ?>">ver</a></td>
 	<?php
 	}
 	?>
@@ -90,8 +112,7 @@
 	<td><a  href="editar.php?id=<?php echo $row['id'];?>">Modificar</a></td>
 <?php
 	}
-	
+
 ?>
 </table>
 </fieldset>
-
